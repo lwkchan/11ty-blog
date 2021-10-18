@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: lwkchan/blog
+
+media_folder: static/assets
+public_folder: assets
+publish_mode: editorial_workflow
+
+collections:
+  - name: blog
+    label: Blog
+    folder: blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    fields:
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: intro, label: Intro, widget: "text" }
+      - { name: body, label: Body, widget: markdown }
