@@ -7,10 +7,7 @@
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {% set css %}
-    {% include "assets/css/turretcss/dist/bundle.css" %}
-  {% endset %}
-  <style>{{ css | cssmin | safe }}</style>
-  {% set css %}
+    {% include "assets/css/turret.css" %}
     {% include "assets/css/layout.css" %}
   {% endset %}
   <style>{{ css | cssmin | safe }}</style>
