@@ -63,8 +63,6 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  // Don't process folders with static assets e.g. images
-  eleventyConfig.addPassthroughCopy('favicon.ico');
   eleventyConfig.addPassthroughCopy('static/');
 
   /* Markdown Plugins */
