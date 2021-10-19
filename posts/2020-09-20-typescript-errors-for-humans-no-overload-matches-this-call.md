@@ -1,5 +1,4 @@
 ---
-slug: ' '
 date: 2020-09-20T17:29:24.229Z
 title: 'TypeScript errors for humans: "no overload matches this call"'
 intro: An explanation of what this error means so I feel less scared
