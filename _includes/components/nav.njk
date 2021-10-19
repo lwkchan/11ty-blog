@@ -1,10 +1,25 @@
-<nav>
+<nav class="nav-inline padding-vertical-l display-flex justify-content-space-between">
   {% set navPages = collections.all | eleventyNavigation %}
-  <ul>
-  {%- for entry in navPages %}
-    <li>
-      <a href="{{ entry.url | url }}"{% if entry.url == page.url %} data-current="current item"{% endif %}>{{ entry.title }}</a>
-    </li>
-  {%- endfor %}
+  <div>
+    <a href="/">
+      <p class="font-size-xl no-margin">
+        <strong>
+          Laura Chan
+        </strong>
+      </p>
+      <p class="no-margin">Front-end Engineer</p>
+    </a>
+  </div>
+  <ul class="display-flex justify-content-flex-end">
+    {%- for entry in navPages %}
+      <li class="align-self-flex-start">
+        {% if entry.key == 'Home' %}
+        {% else %}
+          <a href="{{ entry.url | url }}"{% if entry.url == page.url %} data-current="current item"{% endif %}>
+            {{ entry.title }}
+          </a>
+        {% endif %}
+      </li>
+    {%- endfor %}
   </ul>
 </nav>
