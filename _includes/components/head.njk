@@ -1,13 +1,10 @@
 <head>
   <meta charset="utf-8">
-  {# TODO only load netlify stuff if /admin is in the url #}
-  <link rel="dns-prefetch" href="https://identity.netlify.com">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% set displayTitle = renderData.title or title or metadata.title%}
   <title>{{  displayTitle | prefixTitle }}</title>
   <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
   <meta name="description" content="{{ metaDescription or renderData.metaDescription or metadata.description }}">
-  <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   {% set css %}
     {% include "assets/css/turret.css" %}
     {% include "assets/css/layout.css" %}
