@@ -3,7 +3,6 @@ const CleanCSS = require('clean-css');
 const UglifyJS = require('uglify-js');
 const htmlmin = require('html-minifier');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
-// const metadata = require('_data/metadata.json');
 
 module.exports = function (eleventyConfig) {
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
@@ -31,7 +30,6 @@ module.exports = function (eleventyConfig) {
 
   // Prefix titles with name
   eleventyConfig.addFilter('prefixTitle', (title) => {
-    console.log('`Laura Chan | ${title}`;:', `Laura Chan | ${title}`)
     return `Laura Chan | ${title}`;
   });
 
@@ -64,6 +62,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy('static/');
+
 
   /* Markdown Plugins */
   let markdownIt = require('markdown-it');
