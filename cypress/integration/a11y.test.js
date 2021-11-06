@@ -1,6 +1,23 @@
-describe('My First Test', () => {
-    it('Does not do much!', () => {
-      expect(true).to.equal(true)
-    })
+/// <reference types="Cypress" />
+
+describe('Accessibility', () => {
+  it('homepage has no detectable a11y violations on load', () => {
+    cy.visit('/')
+    cy.injectAxe()
+    cy.checkA11y()
+  });
+
+  it('blogpage has no detectable a11y violations on load', () => {
+    cy.visit('/blog')
+    cy.injectAxe()
+    cy.checkA11y()
   })
-  
+
+  it('latest blogpost has no detectable a11y violations on load', () => {
+    cy.get('article').first().within(() => {
+      cy.get('a').click()
+    })
+    cy.injectAxe()
+    cy.checkA11y()
+  })
+});
