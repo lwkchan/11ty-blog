@@ -6,6 +6,8 @@
     "build": "npx eleventy",
     "watch": "npx eleventy --watch",
     "serve": "npx eleventy --serve",
+    "cypress:open": "cypress open",
+    "cypress:ci-setup": "npx eleventy && npm run serve",
     "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
@@ -13,9 +15,7 @@
     "url": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate"
   },
   "author": {
-    "name": "Dan Urbanowicz",
-    "email": "dan.urbanowicz@gmail.com",
-    "url": "https://www.danurbanowicz.com/"
+    "name": "Laura Chan"
   },
   "license": "MIT",
   "bugs": {
@@ -24,7 +24,10 @@
   "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "axe-core": "^4.3.5",
     "cssnano": "^5.0.8",
+    "cypress": "^8.7.0",
+    "cypress-axe": "^0.13.0",
     "luxon": "^1.25.0",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^5.3.0"
