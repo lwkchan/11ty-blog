@@ -45,5 +45,5 @@ For now I've only written the test so it checks the latest blogpost, as I don't 
 
 ## Further resources
 
-- [Testing Accessibility with Marcy Sutton](https://www.learnwithjason.dev/testing-accessibility). A livestream from Jason Lengstorf's Learn with Jason series. Marcy is an expert in 
+- [Testing Accessibility with Marcy Sutton](https://www.learnwithjason.dev/testing-accessibility). A livestream from Jason Lengstorf's Learn with Jason series. Marcy is an expert in web a11y and I highly recommend her content on the subject.
 - [The most common HTML mistake that I see, by Kevin Powell](https://www.youtube.com/watch?v=NexL5_Vdoq8). This video is where I first learned that heading order is a very common issue in accessibility. Kevin audits a couple of sites, one good example and one bad example, and explains why this is an issue
