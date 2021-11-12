@@ -15,10 +15,35 @@ In order to learn more about accessiblity testing, I decided to set up Cypress t
 
 To avoid copy-pasting documentation which might change, I suggest you follow the documented installation steps for [`Cypress`](https://docs.cypress.io/guides/getting-started/installing-cypress) and then for [`cypress-axe`](https://github.com/component-driven/cypress-axe).
 
-As part of the steps, you will need to add the below line to `cypress/support/index.js`
+After installing, you will need to add the below line to `cypress/support/index.js`
 
 ```js
 import 'cypress-axe'
 ```
 
 This hooks `injectAxe()` and `checkA11y()` to the `cy` object, so that you can call those functions in your tests.
+
+## Writing your test
+
+Once installed, you can run the following functions in your test
+
+```js
+cy.visit('/') // or localhost:<portnumber>
+cy.injectAxe() // injects axe-core so that the a11y audit can be run on the page under test
+cy.checkA11y()
+```
+
+Already `checkA11y()` allows you to audit and correct issues that might be on your page. As this my personal site is quite small, I only found two issues which were [`landmark-unique`](https://dequeuniversity.com/rules/axe/4.1/landmark-unique) and [heading order](https://dequeuniversity.com/rules/axe/4.0/heading-order). However, the tool even allows you to check for unlabelled inputs, duplicate IDs and nested landmarks. See the available rules in the [Axe documentation](https://dequeuniversity.com/rules/axe/).
+
+For more interactive sites, you might want to interact with the page first, for example, clicking on buttons to reveal other content, before running `cy.checkA11y()`.
+
+## Github actions
+
+To automate the process, I set up a Github action to check for every MR. You can learn how to set this up in the [Cypress Documentation on Github actions](https://docs.cypress.io/guides/continuous-integration/github-actions). You can also check out the [repo for this blog](https://github.com/lwkchan/11ty-blog) for my specific set-up, which is a static site running on [11ty](https://www.11ty.dev/).
+
+For now I've only written the test so it checks the latest blogpost, as I don't really want the CI to run for too long and to get progressively longer as I write more posts (even though it is admittedly very short already, being a simple site). Check out that [test on my Github repo for this site](https://github.com/lwkchan/11ty-blog/blob/master/cypress/integration/a11y.test.js).
+
+## Further resources
+
+- [Testing Accessibility with Marcy Sutton](https://www.learnwithjason.dev/testing-accessibility). A livestream from Jason Lengstorf's Learn with Jason series. Marcy is an expert in 
+- [The most common HTML mistake that I see, by Kevin Powell](https://www.youtube.com/watch?v=NexL5_Vdoq8). This video is where I first learned that heading order is a very common issue in accessibility. Kevin audits a couple of sites, one good example and one bad example, and explains why this is an issue
