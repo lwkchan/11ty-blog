@@ -28,8 +28,8 @@ This hooks `injectAxe()` and `checkA11y()` to the `cy` object, so that you can c
 Once installed, you can run the following functions in your test
 
 ```js
-cy.visit('/') // or localhost:<portnumber>
-cy.injectAxe() // injects axe-core so that the a11y audit can be run on the page under test
+cy.visit('/') // or localhost:<portnumber> or whatever path you want to test
+cy.injectAxe() // injects axe-core so that audit can be run on page under test
 cy.checkA11y()
 ```
 
