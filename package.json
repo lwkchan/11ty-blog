@@ -24,6 +24,7 @@
   "homepage": "https://github.com/danurbanowicz/eleventy-netlify-boilerplate",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "axe-core": "^4.3.5",
     "cssnano": "^5.0.8",
     "cypress": "^8.7.0",
