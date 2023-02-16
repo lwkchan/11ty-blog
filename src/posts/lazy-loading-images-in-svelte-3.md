@@ -136,9 +136,7 @@ In the above code, we now need to pass the `src` in as a parameter. Where in `La
 Then, when a component in our application requires lazyLoading, we import the function into the `.svelte` file. To use it, we attach the function to the `<img/>` node with `use:lazyLoad`, then we pass in the required `src` attribute by passing it in as a value of that attribute. I.e. `use:lazyLoad={src}` 
 
 ```html
-
-// ComponentWithImage.svelte
-
+<!-- ComponentWithImage.svelte -->
 <script>
   import lazyLoad from "./lazyLoad";
   const urlBase = "https://placekitten.com/g/500/500?image=";
@@ -158,16 +156,11 @@ Then, when a component in our application requires lazyLoading, we import the fu
     height: 500px;
   }
 </style>
-
+{% raw %}
 <main>
   {#each imageSrcs as src, i}
     <img use:lazyLoad={src} alt="kitten number{i}" />
   {/each}
 </main>
-
+{% endraw %}
 ```
-
-## Resources
-- This article showed me that the `use:action` API was the way to go: [Lazy Loading Images in Svelte](https://dev.to/collardeau/lazy-loading-images-in-svelte-1mk6)
-- [Google Developers article on Lazy Loading Images](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
-- Svelte docs on [`use:action`](https://svelte.dev/docs#use_action)

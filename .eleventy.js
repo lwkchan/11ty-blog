@@ -2,6 +2,7 @@ const { DateTime } = require("luxon");
 const CleanCSS = require("clean-css");
 const UglifyJS = require("uglify-js");
 const htmlmin = require("html-minifier");
+const cssbeautify = require("cssbeautify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
@@ -62,6 +63,8 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.addFilter("cssbeautify", cssbeautify);
+
   eleventyConfig.addPlugin(syntaxHighlight);
 
   eleventyConfig.addPassthroughCopy("static/");
@@ -74,11 +77,13 @@ module.exports = function (eleventyConfig) {
     breaks: true,
     linkify: true,
   };
-  let opts = {
-    permalink: false,
-  };
 
-  eleventyConfig.setLibrary("md", markdownIt(options).use(markdownItAnchor, opts));
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt(options).use(markdownItAnchor, {
+      permalink: false,
+    })
+  );
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
@@ -88,8 +93,7 @@ module.exports = function (eleventyConfig) {
     // If you don’t have a subdirectory, use "" or "/" (they do the same thing)
     // This is only used for URLs (it does not affect your file structure)
     pathPrefix: "/",
-
-    markdownTemplateEngine: "liquid",
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
     dir: {
