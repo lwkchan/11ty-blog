@@ -1,3 +1,0 @@
-.content > :not(h1) {
-    max-width: var(--max-width-m); 
-}

@@ -10,16 +10,16 @@
       <p class="no-margin">Front-end Engineer</p>
     </a>
   </div>
-  <ul class="display-flex justify-content-flex-end">
+  <ul class="display-flex flex-justify-center">
     {%- for entry in navPages %}
-      <li class="align-self-flex-start">
-        {% if entry.key == 'Home' %}
-        {% else %}
+      {% if entry.key == 'Home' %}
+      {% else %}
+        <li>
           <a href="{{ entry.url | url }}"{% if entry.url == page.url %} data-current="current item"{% endif %}>
             {{ entry.title }}
           </a>
-        {% endif %}
-      </li>
+        </li>
+      {% endif %}
     {%- endfor %}
   </ul>
 </nav>
