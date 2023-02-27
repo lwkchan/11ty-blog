@@ -3,9 +3,11 @@ date: 2023-02-16
 title: 'Dynamic layouts with the `:has` pseudo class'
 ---
 
-Today I came across a real-world example of using the new `:has` pseudo-class.
+Today I came across a real-world example of using the new [`:has` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has).
 
-My designer colleague wanted to make a page layout with a dynamic width: 
+My designer colleague wanted to make a page layout with a dynamic width. This is useful because, when the table is small, the table can stay the same width as other content on different pages. However, if the table contains a lot of information, then our layout can expand so that the page has enough space to display its contents. 
+
+The criteria I have set for this example are: 
 - if the page has a table with less than 5 columns, the page container should have a max width
 - if the page has a table with 5 columns or more, the page container should be 100%, spanning across its parent container
 
@@ -47,8 +49,7 @@ const Table = ({ columns }) => {
 };
 
 export default function App() {
-  const [cols, setCols] = useState(3);
-  const columns = Array.from({ length: cols });
+  const cols = useTableCols() // Generate table columns elswhere
   return (
     <Layout>
       <Table columns={columns} />
@@ -74,6 +75,8 @@ In this case, I could achieve what I wanted in a few lines. This felt better bec
   max-width: 100%;
 }
 ```
+
+The argument passed to `:has`, `table th:nth-of-type(5)`, selects a a `th` element which is 5th among its siblings (`:nth-of-type(5)`) and is a child of a `table`. When passing this selector to `.layout:has()`, we are saying add the attributes to an element with `.layout` class and contains an element with the argument. This means that the `max-width: 100%` will only apply to the layout if there is a table which contains 5 or more `th` elements in a row, which denotes 5 or more columns in a table.
 
 ## Example codepen
 
