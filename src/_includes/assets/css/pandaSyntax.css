@@ -43,7 +43,7 @@
   }
   /* Begin Color Assignments */
   .token.comment, .token.prolog, .token.doctype, .token.cdata {
-    color: #757575;
+    color: #B5B5B5;
   }
   .token.punctuation {
     color: #FF9AC1;
