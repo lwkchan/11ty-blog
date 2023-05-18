@@ -78,3 +78,14 @@ When using interactive rebase, setting autosquash to true automatically reorders
 
 As of git `2.37.0`, adding this setting will automatically push the current branch to the remote branch with the same name.
 
+{% set title = "Demo Output" %} 
+{% set description %} Put down the CSS centering jokes! This modern update is often the solution you're looking for to solve your centering woes. {% endset %}
+{% set css %}
+  .centering { display: grid; place-content: center; min-height: 30vh; }
+  .centering span { padding: .5em; outline: 2px solid; }
+{% endset %}
+
+{% set html %}
+<div class="centering">Feeling centered<div>
+{% endset %}
+{% include "components/inlineDemo.njk" %} 
